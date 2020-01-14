@@ -49,7 +49,7 @@ clMID = cl.profile.mid
 
 def restartBOT():
    time.sleep(3)
-   os.execl(sys.executable, sys.executable, [args[1], cl.authToken])
+   os.execl(sys.executable, sys.executable, [args[0], cl.authToken])
 
 def clBot(op):
    try:

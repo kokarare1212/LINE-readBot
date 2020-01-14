@@ -54,7 +54,7 @@ def restartBOT():
 def clBot(op):
    try:
       if os.path.isfile("line.log"):
-         with open("line.log","r", encoding="utf-8") as f:
+         with open("line.log","r", "utf-8", "ignore") as f:
             log = f.read()
       else:
          log = ""
@@ -118,7 +118,7 @@ def clBot(op):
                print("Send Message: Group "+to+"/"+name+" "+messageId+" "+messageId+" "+stickerId+","+stickerVersion+","+packageId)
                log = "["+str(datetime.datetime.now())+"] Send Message: Group "+to+"/"+name+" "+messageId+" "+messageId+" "+stickerId+","+stickerVersion+","+packageId+"\n\n"+log
          if text.lower() == "restart":
-            with open("line.log", "w", encoding="utf-8") as f:
+            with open("line.log", "w", "utf-8", "ignore") as f:
                f.write(log)
             restartBOT()
       if op.type == 26:
@@ -181,7 +181,7 @@ def clBot(op):
          displayName = cl.getContact(mid).displayName
          print("Member Leave To Group: "+gid+"/"+name+" "+mid+"/"+"displayName")
          log = "["+str(datetime.datetime.now())+"] Member Leave To Group: "+gid+"/"+name+" "+mid+"/"+"displayName"+"\n\n"+log
-      with open("line.log", "w", encoding="utf-8") as f:
+      with open("line.log", "w", "utf-8", "ignore") as f:
          f.write(log)
 
 
@@ -191,7 +191,7 @@ def clBot(op):
 
 while True:
     try:
-        ops = oepoll.singleTrace(count=50)
+        ops = oepoll.singleTrace(50)
         if ops is not None:
             for op in ops:
                 clBot(op)
